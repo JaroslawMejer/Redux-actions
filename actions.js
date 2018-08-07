@@ -1,10 +1,10 @@
-const ADD_COMMENT = 'ADD_COMMENT';
-const REMOVE_COMMENT = 'REMOVE_COMMENT';
-const EDIT_COMMENT = 'EDIT_COMMENT';
-const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
-const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
-{
+/*{
     comments: [
         {
             id: '12741danx1278',
@@ -16,8 +16,17 @@ const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
             text: 'Stary komentarz',
             votes: 42
         }
+    ],
+    users: [
+        {
+            id: '121jk6d89h2d',
+            firstName: 'Jan',
+            lastName: 'Nowak',
+            comments: ['12741danb1278'],
+        },
     ]
 }
+
 
 {
 	type: ADD_COMMENT,
@@ -47,12 +56,13 @@ const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 	votes--
 }
 
+
+*/
+
 function addComment(text) {
 	return {
 		type: ADD_COMMENT,
 		text,
-		id: uuid.v4(),
-		votes: 0
 	}
 }
 
@@ -65,7 +75,7 @@ function removeComment(id){
 
 function editComment(text, id){
 	return{
-		type: REMOVE_COMMENT,
+		type: EDIT_COMMENT,
 		id,
 		text
 	}
