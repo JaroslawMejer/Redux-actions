@@ -5,6 +5,21 @@ const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 {
+    comments: [
+        {
+            id: '12741danx1278',
+            text: 'Nowy komentarz',
+            votes: 0
+        },
+        {
+            id: '12741danb1278',
+            text: 'Stary komentarz',
+            votes: 42
+        }
+    ]
+}
+
+{
 	type: ADD_COMMENT,
 	text: 'My first comment!'
 }
@@ -23,13 +38,13 @@ const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 {
 	type: THUMB_UP_COMMENT,
 	id: 20,
-	value++
+	votes++
 }
 
 {
 	type: THUMB_DOWN_COMMENT,
 	id: 20, 
-	value--
+	votes--
 }
 
 function addComment(text) {
@@ -37,7 +52,7 @@ function addComment(text) {
 		type: ADD_COMMENT,
 		text,
 		id: uuid.v4(),
-		value: 0
+		votes: 0
 	}
 }
 
