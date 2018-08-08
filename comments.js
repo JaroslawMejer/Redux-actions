@@ -1,13 +1,18 @@
 import uuid from 'uuid'
 import {ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT, THUMB_UP_COMMENT, THUMB_DOWN_COMMENT} from './actions'
 
+
+const initialState = {
+  list: []
+}
+
 function comments(state = [], action) {
 	switch(action.type) {
 		case ADD_COMMENT:
 			return  {
 				...state,
-				comments: [
-					...state.comments,
+				list: [
+					...state.list,
 					{
 						id: uuid.v4(),
 						text: action.text,
@@ -18,12 +23,12 @@ function comments(state = [], action) {
 		case REMOVE_COMMENT:
 			return {
 				...state,
-				comments: state.comments.filter(comment => comment.id !== action.id)
+				list: state.list.filter(comment => comment.id !== action.id)
 			};
 		case EDIT_COMMENT:
 			return {
 				...state,
-				comments: state.comments.map(comment => {
+				list: state.list.map(comment => {
 					if(comment.id == action.id){
 						return {
 							...comment,
@@ -35,7 +40,7 @@ function comments(state = [], action) {
 		case THUMB_UP_COMMENT:
 			return {
 				...state,
-				comments: state.comments.map(comment => {
+				list: state.list.map(comment => {
 					if (comment.id == action.id){
 						return {
 							...comment,
@@ -47,7 +52,7 @@ function comments(state = [], action) {
 		case THUMB_DOWN_COMMENT:
 			return {
 				...state,
-				comments: state.comments.map(comment => {
+				list: state.list.map(comment => {
 					if (comment.id == action.id){
 						return {
 							...comment,
